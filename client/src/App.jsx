@@ -1,23 +1,11 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Layout from "./components/Layout";
+import { AppProviders, AppRouter } from "./app/index.js";
+// import { Toaster } from "./shared/index.js";
 
-const App = () => {
-	const AuthenticatedApp = () => {
-		return (
-			<Routes>
-				<Route path="/" element={<Layout />}>
-					<Route index element={<Home />} />
-				</Route>
-			</Routes>
-		);
-	};
-
+export default function App() {
 	return (
-		<Router>
-			<AuthenticatedApp />
-		</Router>
+		<AppProviders>
+			<AppRouter />
+			{/* <Toaster /> */}
+		</AppProviders>
 	);
-};
-
-export default App;
+}
